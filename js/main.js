@@ -1,16 +1,14 @@
-let kilometros = prompt ("ingresa la cantidad de kilometros diarios")
+let kilometros = prompt ("cuantos kilometros diarios se necesian para estar saludable y tener una buena condicion fisica?")
 
-while (kilometros <= "5") {
+while (kilometros != "10") {
 
-    let kilometrosExtra = prompt ("incrementa quilometros a tu rutina")
+    alert ("con eso no es suficiente")
 
-    if (kilometros > "4") {
-        kilometrosExtra = kilometrosExtra + kilometros;
-    }
+    kilometros = prompt ("incrementa quilometros a tu rutina");
 
-    break;
 }
 
-alert ("tu salud y condicion fisica sera optima");
+alert ("con esos kilometros tu salud y condicion fisica sera optima");
+
 
 
