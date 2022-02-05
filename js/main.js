@@ -15,7 +15,7 @@ alert ("con esos kilometros tu salud y condicion fisica sera optima"); */
 
 /* ----ARRAYS---- */
 
-const productos = [
+/*const productos = [
     {tipo:"bmx", precio: 3000},
     {tipo:"kids", precio: 2000},
     {tipo:"mtb", precio: 5000},
@@ -57,7 +57,7 @@ alert ("el total de tu compra es " + total )
 
 /* ---DISPOSITIVO INTERACTIVO--- */
 
-alert ("a continuacion continuaremos con el pago de tu compra")
+/*alert ("a continuacion continuaremos con el pago de tu compra")
 
 function apellidoNombre (){
 
@@ -85,4 +85,4 @@ function datosCompra() {
 }
 datosCompra();
 
-alert ("tu compra a sido exitosa, en brebedad enviaremos tu codigo")
+alert ("tu compra a sido exitosa, en brebedad enviaremos tu codigo")*/

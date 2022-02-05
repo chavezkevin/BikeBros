@@ -1,0 +1,146 @@
+body {
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    margin: 0;
+}
+
+.logo img {
+    width: 80px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    border-radius: 5px;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #FF9505;
+    padding: 20px;
+}
+
+.portada img {
+    width: 100%;
+    height: 75vh;
+
+}
+
+main {
+margin: 0;
+}
+
+section h2 {
+    padding: 5px;
+    text-decoration: underline 5PX #FF9505;
+    box-shadow: 5px 5px 10px #4b49476c;
+}
+
+
+
+
+
+/*------------------*/
+
+.bmx {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+}
+.bmx p {
+    font-size: 30px;
+}
+.bmx img {
+    width: 68%;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    border:groove 1px #48CAE4;
+    margin: 5px;
+    box-shadow: 5px 5px 5px #4b49476c;
+}
+.diomenes2, .diomenes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+/*---------------------*/
+.kids{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+}
+
+.kids p {
+    font-size: 30px;
+
+}
+.kids img {
+    width: 68%;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    border:groove 1px #48CAE4;
+    margin: 5px;
+    box-shadow: 5px 5px 5px #4b49476c;
+}
+.crossboy, .crossboyR12 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*----------------------*/
+
+.mtb {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+}
+.mtb p {
+    font-size: 30px;
+}
+.mtb img {
+    width: 68%;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    border:groove 1px #48CAE4;
+    margin: 5px;
+    box-shadow: 5px 5px 5px #4b49476c;
+}
+.flamingo, .neptune {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*---------------------*/
+
+.ruta {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.ruta p {
+    font-size: 30px;
+}
+.ruta img {
+    width: 48%;
+    border-radius: 10px;
+    border:groove 1px #48CAE4;
+    margin: 5px;
+    box-shadow: 5px 5px 5px #4b49476c;
+}
+.harrier {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
