@@ -28,7 +28,9 @@ body {
 main {
 margin: 0;
 }
-
+section {
+    margin: 15px;
+}
 section h2 {
     padding: 5px;
     text-decoration: underline 5PX #FF9505;
@@ -36,20 +38,27 @@ section h2 {
 }
 
 
-
-
-
 /*------------------*/
 
-.bmx {
+.bicis {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
     margin: 0;
 }
-.bmx p {
+.cardBici {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.precioBici {
     font-size: 30px;
 }
-.bmx img {
+.tituloBici{
+    font-size: 30px;
+}
+.imagenBici {
     width: 68%;
     max-height: 300px;
     object-fit: cover;
@@ -59,88 +68,15 @@ section h2 {
     margin: 5px;
     box-shadow: 5px 5px 5px #4b49476c;
 }
-.diomenes2, .diomenes {
+
+.botonCompra{
+    border-radius: 5px;
+    background-color: #ff00005e;
+}
+
+
+.compra {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-
-
-
-/*---------------------*/
-.kids{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 0;
-}
-
-.kids p {
-    font-size: 30px;
-
-}
-.kids img {
-    width: 68%;
-    max-height: 300px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 10px;
-    border:groove 1px #48CAE4;
-    margin: 5px;
-    box-shadow: 5px 5px 5px #4b49476c;
-}
-.crossboy, .crossboyR12 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/*----------------------*/
-
-.mtb {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 0;
-}
-.mtb p {
-    font-size: 30px;
-}
-.mtb img {
-    width: 68%;
-    max-height: 300px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 10px;
-    border:groove 1px #48CAE4;
-    margin: 5px;
-    box-shadow: 5px 5px 5px #4b49476c;
-}
-.flamingo, .neptune {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/*---------------------*/
-
-.ruta {
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-}
-.ruta p {
-    font-size: 30px;
-}
-.ruta img {
-    width: 48%;
-    border-radius: 10px;
-    border:groove 1px #48CAE4;
-    margin: 5px;
-    box-shadow: 5px 5px 5px #4b49476c;
-}
-.harrier {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-

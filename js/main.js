@@ -15,18 +15,86 @@ alert ("con esos kilometros tu salud y condicion fisica sera optima"); */
 
 /* ----ARRAYS---- */
 
-/*const productos = [
-    {tipo:"bmx", precio: 3000},
-    {tipo:"kids", precio: 2000},
-    {tipo:"mtb", precio: 5000},
-    {tipo:"ruta", precio: 9000},
-    {tipo:"asiento", precio: 300},
-    {tipo:"baliza", precio: 100},
-    {tipo:"freno", precio: 200},
-    {tipo:"inflador", precio: 250}
+const productos = [
+    {
+    id: 1,
+    tipo:"diomenes 2",
+    precio: "$49.750",
+    img : './img/img-BMX/bmxdiomenes2.png'
+    },
+
+    {
+    i: 2,
+    tipo:"diomenes",
+    precio: "$49.750",
+    img: './img/img-BMX/bmxDiomenes.png'},
+
+    {
+    id: 3,
+    tipo:"crossboy",
+    precio: "$32.495",
+    img: './img/img-KIDS/crossboy.png'},
+
+    {
+    id: 4,
+    tipo:"crossboy r12",
+    precio: "$24.915",
+    img: './img/img-KIDS/crossboyR12.png'},
+
+    {
+    id: 5,
+    tipo:"flamingo",
+    precio: "$55.099",
+    img:'./img/img-MTB/mtbflamingo.png'},
+
+    {
+    id: 6,
+    tipo:"neptune",
+    precio: "$50.852",
+    img: './img/img-MTB/mtbneptune.png'},
+
+    {
+    id: 7,
+    tipo:"harrier",
+    precio: "$189.265",
+    img: './img/img-RUTA/rutaharrier.png'},
 ];
 
-function cadaProducto (arr, fn) {
+const bicis = document.querySelector(".bicis")
+const compra = document.querySelector(".compra")
+
+mostrandoProductos()
+
+function mostrandoProductos () {
+    productos.forEach(function(producto){
+        const divBici = document.createElement('div');
+        divBici.classList.add('cardBici');
+
+        const imagenBici = document.createElement('img');
+        imagenBici.src = producto.img;
+        imagenBici.classList.add('imagenBici');
+
+        const tituloBici = document.createElement('h3');
+        tituloBici.textContent = producto.tipo;
+
+        const precioBici = document.createElement('p');
+        precioBici.textContent = producto.precio;
+        
+        const boton = document.createElement('button')
+        boton.classList.add('botonCompra')
+        boton.textContent = "carrito de compra"
+
+        divBici.appendChild(imagenBici);
+        divBici.appendChild(tituloBici);
+        divBici.appendChild(precioBici);
+        divBici.appendChild(boton)
+
+        bicis.appendChild(divBici);
+
+    })
+}
+
+/*function cadaProducto (arr, fn) {
     for (const el of arr) {
         fn(el)
     }
