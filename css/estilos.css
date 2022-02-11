@@ -39,44 +39,15 @@ section h2 {
 
 
 /*------------------*/
-
-.bicis {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    justify-items: center;
+#contenedor{
     margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-wrap: nowrap;
+    justify-items: center;
 }
-.cardBici {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.precioBici {
-    font-size: 30px;
-}
-.tituloBici{
-    font-size: 30px;
-}
-.imagenBici {
-    width: 68%;
-    max-height: 300px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 10px;
-    border:groove 1px #48CAE4;
+#contenedor div {
     margin: 5px;
-    box-shadow: 5px 5px 5px #4b49476c;
-}
-
-.botonCompra{
-    border-radius: 5px;
-    background-color: #ff00005e;
 }
 
 
-.compra {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}

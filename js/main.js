@@ -17,82 +17,148 @@ alert ("con esos kilometros tu salud y condicion fisica sera optima"); */
 
 const productos = [
     {
-    id: 1,
-    tipo:"diomenes 2",
-    precio: "$49.750",
-    img : './img/img-BMX/bmxdiomenes2.png'
+        id: 1,
+        tipo: "diomenes 2",
+        precio: "$49.750",
+        img: './img/img-BMX/bmxdiomenes2.png',
+        cantidad:1
     },
 
     {
-    i: 2,
-    tipo:"diomenes",
-    precio: "$49.750",
-    img: './img/img-BMX/bmxDiomenes.png'},
+        id: 2,
+        tipo: "diomenes",
+        precio: "$49.750",
+        img: './img/img-BMX/bmxDiomenes.png',
+        cantidad:1
+    },
 
     {
-    id: 3,
-    tipo:"crossboy",
-    precio: "$32.495",
-    img: './img/img-KIDS/crossboy.png'},
+        id: 3,
+        tipo: "crossboy",
+        precio: "$32.495",
+        img: './img/img-KIDS/crossboy.png',
+        cantidad:1
+    },
 
     {
-    id: 4,
-    tipo:"crossboy r12",
-    precio: "$24.915",
-    img: './img/img-KIDS/crossboyR12.png'},
+        id: 4,
+        tipo: "crossboy r12",
+        precio: "$24.915",
+        img: './img/img-KIDS/crossboyR12.png',
+        cantidad:1
+    },
 
     {
-    id: 5,
-    tipo:"flamingo",
-    precio: "$55.099",
-    img:'./img/img-MTB/mtbflamingo.png'},
+        id: 5,
+        tipo: "flamingo",
+        precio: "$55.099",
+        img: './img/img-MTB/mtbflamingo.png',
+        cantidad:1
+    },
 
     {
-    id: 6,
-    tipo:"neptune",
-    precio: "$50.852",
-    img: './img/img-MTB/mtbneptune.png'},
+        id: 6,
+        tipo: "neptune",
+        precio: "$50.852",
+        img: './img/img-MTB/mtbneptune.png',
+        cantidad:1
+    },
 
     {
-    id: 7,
-    tipo:"harrier",
-    precio: "$189.265",
-    img: './img/img-RUTA/rutaharrier.png'},
+        id: 7,
+        tipo: "harrier",
+        precio: "$189.265",
+        img: './img/img-RUTA/rutaharrier.png',
+        cantidad:1
+    }
 ];
+const carritoDeCompras = [];
 
-const bicis = document.querySelector(".bicis")
-const compra = document.querySelector(".compra")
+let contenedor = document.getElementById('contenedor')
+let contenedorCarrito = document.getElementById('contenedorCarrito')
+let precioFinal = document.getElementById('total')
+let cantidad = document.getElementById('contador')
 
-mostrandoProductos()
 
-function mostrandoProductos () {
-    productos.forEach(function(producto){
-        const divBici = document.createElement('div');
-        divBici.classList.add('cardBici');
 
-        const imagenBici = document.createElement('img');
-        imagenBici.src = producto.img;
-        imagenBici.classList.add('imagenBici');
 
-        const tituloBici = document.createElement('h3');
-        tituloBici.textContent = producto.tipo;
+for (const producto of productos) {
+    let contenedorProducto = document.createElement("div");
+    contenedorProducto.innerHTML = `
+    <div class=" card text-dark bg-info mb-3" style="width: 30rem; margin: 0;">
+        <img src=${producto.img} class="card-img-top" alt="...">
+        <div class="card-body">
+            <h3 class="card-title">${producto.tipo}</h3>
+            <p class="card-text">${producto.precio}</p>
+            <a href="#" class="btn btn-primary" id="agregar${producto.id}">agregar al carrito</a>
+        </div>
+    </div>`;
 
-        const precioBici = document.createElement('p');
-        precioBici.textContent = producto.precio;
-        
-        const boton = document.createElement('button')
-        boton.classList.add('botonCompra')
-        boton.textContent = "carrito de compra"
+    contenedor.appendChild(contenedorProducto);
 
-        divBici.appendChild(imagenBici);
-        divBici.appendChild(tituloBici);
-        divBici.appendChild(precioBici);
-        divBici.appendChild(boton)
+    let botonAgregar = document.getElementById(`agregar${producto.id}`)
 
-        bicis.appendChild(divBici);
-
+    botonAgregar.addEventListener('click', () => {
+        agregarCarrito(producto.id)
     })
 }
+
+
+/*carrito de compras*/
+function agregarCarrito(id) {
+    let repetido = carritoDeCompras.find(ver => ver.id == id)
+    if (repetido){
+        repetido.cantidad = repetido.cantidad + 1
+
+        document.getElementById(`cantidad${repetido.id}`), innerHTML = `<p>CANTIDAD:<span id="contador${productorepetido.id}"></span></p>`
+    }
+
+    else{
+    let productoAgregar = productos.find(elemento => elemento.id == id)
+    carritoDeCompras.push(productoAgregar)
+    actualizarCarrito()
+
+    let div = document.createElement('div')
+    div.className = 'productoEnCarrito'
+    div.innerHTML = `
+                    <div class="card" style="width: 18rem;">
+                        <div id="productoEnCarrito" class="card-body">
+                        <img src="${productoAgregar.img}" class="card-img-top" alt="...">
+                            <h3 class="card-title">${productoAgregar.tipo}</h3>
+                            <p class="card-text">${productoAgregar.precio}</p>
+                            <button id="eliminar${productoAgregar.id}" type="button" class="btn btn-warning">ELIMINAR DEL CARRITO</button>
+                        </div>
+                    </div>
+    `;
+    contenedorCarrito.appendChild(div)
+
+    let eliminar = document.getElementById(`eliminar${productoAgregar.id}`);
+    eliminar.addEventListener('click',() => {
+        eliminar.parentElement.remove()
+
+        carritoDeCompras = carritoDeCompras.filter(item => item.id != productoAgregar.id)
+    })
+    }
+}
+
+
+function actualizarCarrito() {
+    cantidad.innerText = carritoDeCompras.reduce((acc,el)=> acc + el.cantidad, 0)
+    total.innerText = carritoDeCompras.reduce((acc,el)=> acc + (el.precio * el.cantidad), 0)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*function cadaProducto (arr, fn) {
     for (const el of arr) {
