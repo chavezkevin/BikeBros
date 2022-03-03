@@ -9,55 +9,82 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&family=Comfortaa:wght@300;500;700&family=Josefin+Sans:ital,wght@1,300;1,400;1,600&display=swap"
-        rel="stylesheet">
+
 
     <link rel="stylesheet" href="./css/estilos.css">
     <title>bikebros</title>
 </head>
 
 <body>
-    <div class="logo">
-        <img src="./img/ciclismo.gif" alt="logo de la pagina">
-    </div>
     <header>
-        <div class="titulo">
-            <h1>Bikebros</h1>
+        <div class="container fixed-top">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/index.htm">INICIO</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./paginas/productos.html">PRODUCTOS</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
+        <div>
+            <a class="nav-link active">
+                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    <img src="./img/shopping-cart.png" alt="" width="30" height="24">
+                </button>
+                <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLabel">TU COMPRA</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <ul id="carrito" class="list-group"></ul>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-right">Total: <span id="total"></span>$</p>
+                                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
         <div class="portada">
             <img src="./img/portada.png" alt="">
         </div>
+
     </header>
-    <section class="subtitulo1">
-        <div>
-            <h2>LAS MEJORES OFERTAS</h2>
-        </div>
-    </section>
+    <div class="titulo">
+        <h1>LAS MEJORES OFERTAS</h1>
+    </div>
+
 
     <div class="container">
         <main id="items" class="row justify-content-sm-around m-0"></main>
     </div>
 
-    <section class="subtitulo1">
-        <div>
-            <h2>Carrito</h2>
-        </div>
-        <ul id="carrito" class="list-group"></ul>
-        <hr>
+    <ul id="lista"></ul>
 
-        <div class="total">
-            <p class="text-right">Total: <span id="total"></span>$</p>
-            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-        </div>
-    </section>
-
-    <footer class="d-flex justify-content-evenly">
+    <footer class="d-flex justify-content-evenly bg-dark">
         <div class="navbar navbar-light bg-transparent">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="./img/ciclismo.gif" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                    © 2022 Company, Inc
+                    <img src="./img/ciclismo.gif" alt="" width="30" height="24" class="">
+                    <p class="text-white">© 2022 Company, Inc</p>
                 </a>
             </div>
         </div>
@@ -72,13 +99,17 @@
         </div>
     </footer>
 
-    <script src="./js/main.js"></script>
+
+    <!--link de las librerias-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!--LINK DE BOOTSTRAP-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <!--ANIMACIONES-->
 
+    <!--mi propia hoja de JS-->
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
