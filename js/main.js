@@ -1,4 +1,4 @@
-/*document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // Variables
     let baseDeDatos = [
@@ -89,7 +89,7 @@
     */
 
 
-/*function renderizarProductos() {
+function renderizarProductos() {
     baseDeDatos.forEach((info)=>{
 
 
@@ -129,7 +129,7 @@
         // Boton 
         const miNodoBoton = document.createElement('button');
         miNodoBoton.classList.add('btn', 'btn-primary');
-        miNodoBoton.textContent = '+';
+        miNodoBoton.textContent = 'INCLUIR EN LA COMPRA';
         miNodoBoton.setAttribute('marcador', info.id);
 
         miNodoBoton.addEventListener('click', anyadirProductoAlCarrito)
@@ -161,7 +161,7 @@
 /**
 * Evento para añadir un producto al carrito de la compra
 */
-/*function anyadirProductoAlCarrito(evento) {
+function anyadirProductoAlCarrito(evento) {
 
     // Anyadimos el Nodo a nuestro carrito
     carrito.push(evento.target.getAttribute('marcador'))
@@ -174,7 +174,7 @@
 /**
 * Dibuja todos los productos guardados en el carrito
 */
-/*function renderizarCarrito() {
+function renderizarCarrito() {
     // Vaciamos todo el html
     DOMcarrito.textContent = '';
     // Quitamos los duplicados
@@ -193,7 +193,7 @@
         }, 0);
         // Creamos el nodo del item del carrito
         const miNodo = document.createElement('li');
-        miNodo.classList.add('list-group-item', 'text-right', 'mx-2', 'item');
+        miNodo.classList.add('list-group-item', 'text-right', 'mx-2', 'item', 'bg-secondary', 'text-white');
         miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
         // Boton de borrar
         const miBoton = document.createElement('button');
@@ -227,7 +227,7 @@
 /**
 * Evento para borrar un elemento del carrito
 */
-/*function borrarItemCarrito(evento) {
+function borrarItemCarrito(evento) {
     // Obtenemos el producto ID que hay en el boton pulsado
     const id = evento.target.dataset.item;
     // Borramos todos los productos
@@ -244,7 +244,7 @@
 /**
  * Calcula el precio total teniendo en cuenta los productos repetidos
  */
-/*function calcularTotal() {
+function calcularTotal() {
     // Recorremos el array del carrito 
     return carrito.reduce((total, item) => {
         // De cada elemento obtenemos su precio
@@ -259,7 +259,7 @@
 /**
 * Varia el carrito y vuelve a dibujarlo
 */
-/*function vaciarCarrito() {
+function vaciarCarrito() {
     // Limpiamos los productos guardados
     carrito = [];
     // Renderizamos los cambios
@@ -288,11 +288,15 @@ DOMbotonVaciar.addEventListener('click', vaciarCarrito);
 cargarCarritoDeLocalStorage();
 renderizarProductos();
 renderizarCarrito();
-});*/
+});
+
+
+
+
 
 const lista = document.getElementById("lista")
 
-const url = "./js/productos.json"
+const url = "../js/galeria.json"
 
 
 fetch(url)
@@ -303,13 +307,8 @@ fetch(url)
             const li = document.createElement("li");
 
             li.innerHTML = `
-        <div class="card bg-info border-dark" style="width: 18rem;">
-            <img src="${elemento.imagen}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h2 class="card-title">${elemento.nombre}</h2>
-                <p class="card-text">${elemento.descripcion}</p>
-                <p class="card-text">${elemento.precio}</p>
-            </div>
+        <div class="card border-dark imgMultimedia">
+            <img src="${elemento.imagen}" class="" alt="...">
         </div>
         `
             lista.append(li)

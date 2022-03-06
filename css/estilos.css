@@ -46,6 +46,9 @@ body {
     box-shadow: 1px 15px 10px #ff0101a9;
 }
 
+footer {
+    margin-top: 5rem;
+}
 
 /*------------------*/
 .contenedor1 {
@@ -72,4 +75,10 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.imgMultimedia {
+    width: 33rem;
 }
