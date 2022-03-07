@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const DOMcarrito = document.querySelector('#carrito');
     const DOMtotal = document.querySelector('#total');
     const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+    const botonComprar = document.querySelector('#boton-comprar');
     const miLocalStorage = window.localStorage;
 
     // Funciones
@@ -134,14 +135,20 @@ function renderizarProductos() {
 
         miNodoBoton.addEventListener('click', anyadirProductoAlCarrito)
         miNodoBoton.addEventListener('click', () => {
-            swal.fire({
-                html: `<div class="alert alert-success d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                <div>
-                <h2>ACABAS DE AGREGAR UN PRPODUCTO A TU CARRITO</h2>
-                </div>
-                </div>`,
-                icon: 'success'
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                icon: 'success',
+                title: 'producto agregado en el carrito'
             })
         });
 
@@ -201,17 +208,22 @@ function renderizarCarrito() {
         miBoton.textContent = 'X';
         miBoton.style.marginLeft = '1rem';
         miBoton.dataset.item = item;
-
         miBoton.addEventListener('click', borrarItemCarrito,)
         miBoton.addEventListener('click', () => {
-            swal.fire({
-                html: `<div class="alert alert-success d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                <div>
-                <h2>ESTE PRODUCTO A SIDO ELIMINADO</h2>
-                </div>
-                </div>`,
-                icon: 'succes'
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                icon: 'error',
+                title: 'producto eliminado'
             })
         })
 
@@ -256,6 +268,7 @@ function calcularTotal() {
     }, 0).toFixed(2);
 }
 
+
 /**
 * Varia el carrito y vuelve a dibujarlo
 */
@@ -268,6 +281,24 @@ function vaciarCarrito() {
     localStorage.clear();
 
 }
+
+// comprar
+botonComprar.addEventListener('click', () => {
+    (async() =>{
+        const {value:email} = await swal.fire({
+            icon: 'question',
+            title: 'INGRESA TU CORREO ELECTRONICO',
+            input: 'email',
+            footer: '<spam class="color">usaremos tu correo para enviarte un codigo de berificacion</spam>'
+        })
+        if (email){
+            swal.fire({
+                title: 'TU CORREO ES',
+                text: '${email}'
+            })
+        }
+    })()
+})
 
 function guardarCarritoEnLocalStorage() {
     miLocalStorage.setItem('carrito', JSON.stringify(carrito));
