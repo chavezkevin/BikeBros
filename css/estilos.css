@@ -85,3 +85,11 @@ footer {
 .imgMultimedia {
     width: 33rem;
 }
+
+.btn-comprar{
+    border: chartreuse;
+    border-radius: 10px;
+    background-color: #2bff00;
+    padding: 20px;
+    color: black;
+}

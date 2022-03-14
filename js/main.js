@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const DOMcarrito = document.querySelector('#carrito');
     const DOMtotal = document.querySelector('#total');
     const DOMbotonVaciar = document.querySelector('#boton-vaciar');
-    const botonComprar = document.querySelector('#boton-comprar');
     const miLocalStorage = window.localStorage;
 
     // Funciones
@@ -282,23 +281,8 @@ function vaciarCarrito() {
 
 }
 
-// comprar
-botonComprar.addEventListener('click', () => {
-    (async() =>{
-        const {value:email} = await swal.fire({
-            icon: 'question',
-            title: 'INGRESA TU CORREO ELECTRONICO',
-            input: 'email',
-            footer: '<spam class="color">usaremos tu correo para enviarte un codigo de berificacion</spam>'
-        })
-        if (email){
-            swal.fire({
-                title: 'TU CORREO ES',
-                text: '${email}'
-            })
-        }
-    })()
-})
+
+
 
 function guardarCarritoEnLocalStorage() {
     miLocalStorage.setItem('carrito', JSON.stringify(carrito));
@@ -347,5 +331,13 @@ fetch(url)
     })
 
 
+    const botonFinlizarCompra = document.querySelector('#boton-compra-finalizada')
 
-
+// comprar
+botonFinlizarCompra.addEventListener('click', () => {
+    Swal.fire({
+        icon: 'success',
+        title: 'COMPRA REALIZADA CON EXITO!',
+        text: 'En la brebedad enviaremos un codigo a tu correo para que puedas verificar el estado de tu compra.'
+    })
+})
